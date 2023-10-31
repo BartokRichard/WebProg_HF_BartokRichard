@@ -56,7 +56,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
               if ($file_size <= 3 * 1024 * 1024) {
                   $upload_directory = 'uploads/';
                   if (!file_exists($upload_directory)) {
-                      mkdir($upload_directory, 0777, true);
+                      mkdir($upload_directory, 0644, true);
                   }
 
                   $file_path = $upload_directory . basename($_FILES["abstract"]["name"]);
@@ -72,7 +72,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             } else {
                echo "<p>Invalid file type</br>";
             }
-         } else {
+        } else {
             echo "<p>No file uploaded</br>";
         }
     } else {
